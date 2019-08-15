@@ -3,6 +3,7 @@ package com.sulzerus.bookstore.entity;
 import java.math.BigDecimal;
 
 import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -25,6 +26,7 @@ public class Book {
 	
 	@NotNull(message="Book price is required")
 	@DecimalMin(value="0.01", message="Book must cost at least $0.01")
+	@Digits(fraction=2, message="Fractional cents not allowed", integer = Integer.MAX_VALUE)
 	private BigDecimal price;
 
 	public Book() {
